@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+=======
+>>>>>>> f21e5e28c9fd20ccd57c304e9584850b7478da99
 # Built application files
 *.apk
 *.ap_
@@ -31,6 +44,69 @@ proguard/
 
 # Android Studio captures folder
 captures/
+
+<<<<<<< HEAD
+# Intellij
+*.iml
+.idea/workspace.xml
+
+# Keystore files
+*.jks
+certificates/
+
+# More miscellaneous stuff
+.DS_Store
+Thumbs.db
+TODO.txt
+import-summary.txt
+.gradle
+bin/
+gen/
+local.properties
+/.idea
+.DS_Store
+build/
+.gradle/
+*.apk
+*.ap_
+*.dex
+*.class
+proguard/
+.idea
+*.iml
+!.travis.yml
+target
+Thumbs.db
+*.swp
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+build/
+gradle.properties
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Intellij project files
+*.iws
+.idea/tasks.xml
+.idea
+
+*.iml
+
+# OS
+.DS_Store
+
+# Payment flavors
+app/src/paid/*
+app/prod/*
+
+# IDE crashes on Linux
+.attach_pid*
 
 # IntelliJ
 *.iml
