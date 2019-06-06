@@ -14,4 +14,8 @@ public class Library {
     public static void onNotificationReceived(Intent data) {
 
     }
+
+    public static void setDependencies(GetFCMToken getFCMToken) {
+        Library.getFCMToken = getFCMToken;
+    }
 }
