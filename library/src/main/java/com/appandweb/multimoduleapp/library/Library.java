@@ -6,16 +6,16 @@ import com.appandweb.multimoduleapp.library.fcm.GetFcmTokenImpl;
 import com.appandweb.multimoduleapp.library.model.AbsPushMessage;
 import com.appandweb.multimoduleapp.library.model.MMNotification;
 
+import java.lang.ref.WeakReference;
+
 public class Library {
-    static GetFCMToken getFCMToken;
+    static GetFCMToken getFCMToken = new GetFcmTokenImpl();
+    static WeakReference<Context> contextRef;
     static View view;
 
-    private Library() {
-        view = new AndroidView();
-        getFCMToken = new GetFcmTokenImpl();
-    }
-
     public static void initialize(Context context) {
+        contextRef = new WeakReference<>(context);
+        view = new AndroidView(contextRef);
         String token = getFCMToken.getFcmToken();
         token.toString();
     }
