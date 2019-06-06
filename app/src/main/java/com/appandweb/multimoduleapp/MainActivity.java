@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import com.appandweb.multimoduleapp.library.LibActivity;
 import com.appandweb.multimoduleapp.library.Library;
+import com.appandweb.multimoduleapp.mock.FakePushMessage;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -29,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnReceiveNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent data = new Intent();
-
-                Library.onNotificationReceived(data);
+                Library.onNotificationReceived(new FakePushMessage());
             }
         });
     }
