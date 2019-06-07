@@ -10,7 +10,11 @@ import android.widget.Toast;
 import com.appandweb.multimoduleapp.library.LibActivity;
 import com.appandweb.multimoduleapp.library.Library;
 import com.appandweb.multimoduleapp.mock.FakePushMessage;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -40,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
         btnToken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean hasBeenInitialized = false;
+                FirebaseOptions options = new FirebaseOptions.Builder()
+                        .setApplicationId(BuildConfig.AppFirebaseId)
+                        .setApiKey(BuildConfig.AppFirebaseApiKey)
+                        .setDatabaseUrl(BuildConfig.AppFirebaseDatabaseUrl)
+                        .build();
+                List<FirebaseApp> firebaseApps = FirebaseApp.getApps(getApplicationContext());
+                for (FirebaseApp app : firebaseApps) {
+                    if (app.getName().equals(FirebaseApp.DEFAULT_APP_NAME)) {
+                        hasBeenInitialized = true;
+                    }
+                }
+                if (!hasBeenInitialized) {
+                    FirebaseApp.initializeApp(getApplicationContext(), options);
+                }
+
                 String token = FirebaseInstanceId.getInstance().getToken();
                 Toast.makeText(MainActivity.this, token, Toast.LENGTH_LONG).show();
             }

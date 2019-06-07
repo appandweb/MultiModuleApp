@@ -16,6 +16,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "isUserAGoat"
+
+    productFlavors {
+        prod {
+            Properties prop = new Properties();
+            prop.load(project.rootProject.file('local.properties').newDataInputStream())
+
+            def libraryFirebaseId = prop.get("libraryFirebaseId", null)
+            def libraryFirebaseApiKey = prop.get("libraryFirebaseApiKey", null)
+            def libraryFirebaseDatabaseUrl = prop.get("libraryFirebaseDatabaseUrl", null)
+
+            buildConfigField("String", "LibraryFirebaseId", "\"${libraryFirebaseId}\"")
+            buildConfigField("String", "LibraryFirebaseApiKey", "\"${libraryFirebaseApiKey}\"")
+            buildConfigField("String", "LibraryFirebaseDatabaseUrl", "\"${libraryFirebaseDatabaseUrl}\"")
+
+            dimension "isUserAGoat"
+        }
+    }
 }
 
 dependencies {
