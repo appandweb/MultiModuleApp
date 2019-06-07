@@ -6,9 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import com.appandweb.multimoduleapp.library.LibActivity;
 import com.appandweb.multimoduleapp.library.Library;
 import com.appandweb.multimoduleapp.mock.FakePushMessage;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnNavigate = findViewById(R.id.btnNavigate);
         Button btnReceiveNotification = findViewById(R.id.btnNotification);
+        Button btnToken = findViewById(R.id.btnToken);
 
         btnNavigate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Library.onNotificationReceived(new FakePushMessage());
+            }
+        });
+
+        btnToken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String token = FirebaseInstanceId.getInstance().getToken();
+                Toast.makeText(MainActivity.this, token, Toast.LENGTH_LONG).show();
             }
         });
     }
