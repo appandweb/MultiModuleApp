@@ -1,10 +1,8 @@
-package com.appandweb.multimoduleapp.library;
+package com.appandweb.multimoduleapp.library.common;
 
 import android.content.Context;
-import com.appandweb.multimoduleapp.library.fcm.GetFCMToken;
-import com.appandweb.multimoduleapp.library.fcm.GetFcmTokenImpl;
-import com.appandweb.multimoduleapp.library.model.AbsPushMessage;
-import com.appandweb.multimoduleapp.library.model.MMNotification;
+import com.appandweb.multimoduleapp.library.common.fcm.GetFCMToken;
+import com.appandweb.multimoduleapp.library.common.fcm.GetFcmTokenImpl;
 
 import java.lang.ref.WeakReference;
 
@@ -35,7 +33,7 @@ public class Library {
         Library.viewRef = new WeakReference(view);
     }
 
-    public interface View {
+    interface View {
         void showNotification(MMNotification notification);
     }
 }

@@ -1,4 +1,4 @@
-package com.appandweb.multimoduleapp.library.model;
+package com.appandweb.multimoduleapp.library.common;
 
 public interface AbsPushMessage {
     boolean hasData();

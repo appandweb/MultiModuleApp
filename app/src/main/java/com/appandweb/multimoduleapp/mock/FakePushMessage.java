@@ -1,6 +1,6 @@
 package com.appandweb.multimoduleapp.mock;
 
-import com.appandweb.multimoduleapp.library.model.AbsPushMessage;
+import com.appandweb.multimoduleapp.library.common.AbsPushMessage;
 
 public class FakePushMessage implements AbsPushMessage {
     @Override

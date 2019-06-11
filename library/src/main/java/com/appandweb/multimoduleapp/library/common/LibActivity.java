@@ -1,8 +1,10 @@
-package com.appandweb.multimoduleapp.library;
+package com.appandweb.multimoduleapp.library.common;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+import com.appandweb.multimoduleapp.library.BuildConfig;
+import com.appandweb.multimoduleapp.library.R;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.iid.FirebaseInstanceId;

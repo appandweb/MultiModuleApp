@@ -1,4 +1,4 @@
-package com.appandweb.multimoduleapp.library;
+package com.appandweb.multimoduleapp.library.common;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -11,7 +11,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import com.appandweb.multimoduleapp.library.model.MMNotification;
+import com.appandweb.multimoduleapp.library.BuildConfig;
 
 import java.lang.ref.WeakReference;
 

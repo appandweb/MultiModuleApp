@@ -1,4 +1,4 @@
-package com.appandweb.multimoduleapp.library.fcm;
+package com.appandweb.multimoduleapp.library.common.fcm;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 

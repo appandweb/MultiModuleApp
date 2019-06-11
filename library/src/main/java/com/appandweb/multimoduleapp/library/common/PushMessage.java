@@ -1,4 +1,4 @@
-package com.appandweb.multimoduleapp.library.model;
+package com.appandweb.multimoduleapp.library.common;
 
 import com.google.firebase.messaging.RemoteMessage;
 
