@@ -14,7 +14,7 @@ public class Library {
     static WeakReference<View> viewRef;
 
     public static void initialize(Context context) {
-        contextRef = new WeakReference<>(context);
+        contextRef = new WeakReference<>(context.getApplicationContext());
 
         getFCMToken.getFcmToken();
     }
