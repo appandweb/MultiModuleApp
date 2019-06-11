@@ -14,12 +14,11 @@ import java.util.List;
 public class Library {
     static GetFCMToken getFCMToken = new GetFcmTokenImpl();
     static WeakReference<Context> contextRef;
-    static View view;
+    static WeakReference<View> viewRef;
     static FirebaseApp firebaseApp;
 
     public static void initialize(Context context) {
         contextRef = new WeakReference<>(context);
-        view = new AndroidView(contextRef);
 
         boolean hasBeenInitialized = false;
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -40,7 +39,7 @@ public class Library {
     }
 
     public static void onNotificationReceived(AbsPushMessage pushMessage) {
-        view.showNotification(createNotificationFromData(pushMessage));
+        viewRef.get().showNotification(createNotificationFromData(pushMessage));
     }
 
     private static MMNotification createNotificationFromData(AbsPushMessage pushMessage) {
@@ -52,7 +51,7 @@ public class Library {
 
     public static void setDependencies(GetFCMToken getFCMToken, View view) {
         Library.getFCMToken = getFCMToken;
-        Library.view = view;
+        Library.viewRef = new WeakReference(view);
     }
 
     public interface View {
