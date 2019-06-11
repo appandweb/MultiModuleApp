@@ -31,7 +31,7 @@ public class LibActivity extends AppCompatActivity {
         if (!hasBeenInitialized) {
             FirebaseApp.initializeApp(this, options);
         }
-        String token2 = FirebaseInstanceId.getInstance().getToken();
-        Toast.makeText(this, token2, Toast.LENGTH_LONG).show();
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Toast.makeText(this, token, Toast.LENGTH_LONG).show();
     }
 }
