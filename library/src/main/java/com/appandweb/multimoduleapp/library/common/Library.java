@@ -9,7 +9,8 @@ import java.lang.ref.WeakReference;
 public class Library {
     static GetFCMToken getFCMToken = new GetFcmTokenImpl();
     static WeakReference<Context> contextRef;
-    static WeakReference<View> viewRef = new WeakReference(new NullView());
+    static View nullView = new NullView();
+    static WeakReference<View> viewRef = new WeakReference(nullView);
 
     public static void initialize(Context context) {
         contextRef = new WeakReference<>(context.getApplicationContext());
@@ -33,6 +34,9 @@ public class Library {
         Library.viewRef = new WeakReference(view != null ? view : new NullView());
     }
 
+    /**
+     * https://en.wikipedia.org/wiki/Null_object_pattern
+     */
     private static class NullView implements View {
         @Override
         public void showNotification(MMNotification notification) {
