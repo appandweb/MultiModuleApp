@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 public class Library {
     static GetFCMToken getFCMToken = new GetFcmTokenImpl();
     static WeakReference<Context> contextRef;
-    static WeakReference<View> viewRef;
+    static WeakReference<View> viewRef = new WeakReference(new NullView());
 
     public static void initialize(Context context) {
         contextRef = new WeakReference<>(context.getApplicationContext());
@@ -30,7 +30,14 @@ public class Library {
 
     static void setDependencies(GetFCMToken getFCMToken, View view) {
         Library.getFCMToken = getFCMToken;
-        Library.viewRef = new WeakReference(view);
+        Library.viewRef = new WeakReference(view != null ? view : new NullView());
+    }
+
+    private static class NullView implements View {
+        @Override
+        public void showNotification(MMNotification notification) {
+            /* Empty */
+        }
     }
 
     interface View {
