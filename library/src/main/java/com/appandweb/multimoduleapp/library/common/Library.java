@@ -28,7 +28,7 @@ public class Library {
         return notification;
     }
 
-    public static void setDependencies(GetFCMToken getFCMToken, View view) {
+    static void setDependencies(GetFCMToken getFCMToken, View view) {
         Library.getFCMToken = getFCMToken;
         Library.viewRef = new WeakReference(view);
     }
