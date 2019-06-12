@@ -2,6 +2,7 @@ package com.appandweb.multimoduleapp.library.common;
 
 import android.content.Context;
 import com.appandweb.multimoduleapp.library.common.fcm.GetFCMToken;
+import com.appandweb.multimoduleapp.library.common.permission.CheckPermission;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -18,6 +19,9 @@ public class LibraryTest {
     GetFCMToken mockGetFCMToken;
 
     @Mock
+    CheckPermission mockCheckPermission;
+
+    @Mock
     AbsPushMessage mockPushMessage;
 
     @Mock
@@ -29,14 +33,7 @@ public class LibraryTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        Library.setDependencies(mockGetFCMToken, mockView);
-    }
-
-    @Test
-    public void shouldGetAnFCMTokenOnInitialization() {
-        Library.initialize(mockApplicationContext);
-
-        verify(mockGetFCMToken).getFcmToken();
+        Library.setDependencies(mockGetFCMToken, mockCheckPermission, mockView);
     }
 
     @Test

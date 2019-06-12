@@ -3,13 +3,16 @@ package com.appandweb.multimoduleapp.library.common;
 import android.content.Context;
 import com.appandweb.multimoduleapp.library.common.fcm.GetFCMToken;
 import com.appandweb.multimoduleapp.library.common.fcm.GetFcmTokenImpl;
+import com.appandweb.multimoduleapp.library.common.permission.CheckPermission;
+import com.appandweb.multimoduleapp.library.common.permission.CheckPermissionImpl;
 
 import java.lang.ref.WeakReference;
 
 public class Library {
-    static GetFCMToken getFCMToken = new GetFcmTokenImpl();
     static WeakReference<Context> contextRef;
+    static GetFCMToken getFCMToken = new GetFcmTokenImpl();
     static View nullView = new NullView();
+    static CheckPermission checkPermission = new CheckPermissionImpl(contextRef);
     static WeakReference<View> viewRef = new WeakReference(nullView);
 
     public static void initialize(Context context) {
@@ -29,8 +32,9 @@ public class Library {
         return notification;
     }
 
-    static void setDependencies(GetFCMToken getFCMToken, View view) {
+    static void setDependencies(GetFCMToken getFCMToken, CheckPermission checkPermission, View view) {
         Library.getFCMToken = getFCMToken;
+        Library.checkPermission = checkPermission;
         Library.viewRef = new WeakReference(view != null ? view : new NullView());
     }
 
