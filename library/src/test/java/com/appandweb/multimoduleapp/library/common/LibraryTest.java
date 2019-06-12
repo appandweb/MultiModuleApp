@@ -1,10 +1,7 @@
-package com.appandweb.multimoduleapp;
+package com.appandweb.multimoduleapp.library.common;
 
 import android.content.Context;
-import com.appandweb.multimoduleapp.library.Library;
-import com.appandweb.multimoduleapp.library.fcm.GetFCMToken;
-import com.appandweb.multimoduleapp.library.model.AbsPushMessage;
-import com.appandweb.multimoduleapp.library.model.MMNotification;
+import com.appandweb.multimoduleapp.library.common.fcm.GetFCMToken;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
