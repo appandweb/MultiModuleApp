@@ -26,7 +26,7 @@ public class LibraryNullInitializationTest {
 
     @Test
     public void shouldNotCrashIfCallingNotificationReceivedInitializedWithNulls() {
-        Library.setDependencies(null, null);
+        Library.setDependencies(null, null, null);
 
         Library.onNotificationReceived(mockPushMessage);
     }
