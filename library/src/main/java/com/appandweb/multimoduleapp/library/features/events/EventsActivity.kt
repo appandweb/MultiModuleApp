@@ -1,4 +1,4 @@
-package com.appandweb.multimoduleapp.library.features.products
+package com.appandweb.multimoduleapp.library.features.events
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,24 +8,24 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.appandweb.multimoduleapp.library.R
-import com.appandweb.multimoduleapp.library.features.products.adapter.ProductsAdapter
-import kotlinx.android.synthetic.main.activity_products.*
+import com.appandweb.multimoduleapp.library.features.events.adapter.EventsAdapter
+import kotlinx.android.synthetic.main.activity_events.*
 
-class ProductsActivity : AppCompatActivity(), ProductsPresenter.View, ProductsPresenter.Navigator {
+class EventsActivity : AppCompatActivity(), EventsPresenter.View, EventsPresenter.Navigator {
 
-    var adapter: ProductsAdapter? = null
-    lateinit var presenter: ProductsPresenter
+    var adapter: EventsAdapter? = null
+    lateinit var presenter: EventsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_products)
+        setContentView(R.layout.activity_events)
 
-        adapter = ProductsAdapter()
+        adapter = EventsAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this, VERTICAL, false)
 
-        presenter = ProductsPresenter(GetProductsMockImpl())
+        presenter = EventsPresenter(GetEventsMockImpl())
         presenter.view = this
         presenter.navigator = this
 
@@ -36,8 +36,8 @@ class ProductsActivity : AppCompatActivity(), ProductsPresenter.View, ProductsPr
         adapter?.clear()
     }
 
-    override fun addProduct(product: MMProduct) {
-        adapter?.add(product)
+    override fun addEvent(event: MMEvent) {
+        adapter?.add(event)
     }
 
     override fun notifyChangesToList() {

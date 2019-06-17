@@ -1,23 +1,23 @@
-package com.appandweb.multimoduleapp.library.features.products
+package com.appandweb.multimoduleapp.library.features.events
 
 import com.appandweb.multimoduleapp.library.common.Presenter
 
-class ProductsPresenter(val getProducts: GetProducts) :
-    Presenter<ProductsPresenter.View, ProductsPresenter.Navigator>() {
+class EventsPresenter(val getEvents: GetEvents) :
+    Presenter<EventsPresenter.View, EventsPresenter.Navigator>() {
 
     override fun initialize() {
         view?.clearList()
 
-        getProducts.getProducts(object : GetProducts.Listener {
-            override fun onSuccess(products: List<MMProduct>) {
-                products
+        getEvents.getEvents(object : GetEvents.Listener {
+            override fun onSuccess(events: List<MMEvent>) {
+                events
                     .takeIf { it.isNotEmpty() }
-                    ?.forEach { view?.addProduct(it) }
+                    ?.forEach { view?.addEvent(it) }
                     .also {
                         view?.notifyChangesToList()
                     }
 
-                products.takeIf { it.isEmpty() }?.let {
+                events.takeIf { it.isEmpty() }?.let {
                     view?.showEmptyCase()
                 }
             }
@@ -30,7 +30,7 @@ class ProductsPresenter(val getProducts: GetProducts) :
 
     interface View {
         fun clearList()
-        fun addProduct(product: MMProduct)
+        fun addEvent(event: MMEvent)
         fun notifyChangesToList()
         fun showError(message: String)
         fun showEmptyCase()

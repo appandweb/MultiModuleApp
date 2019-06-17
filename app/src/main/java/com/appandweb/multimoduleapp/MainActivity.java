@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.appandweb.multimoduleapp.library.common.LibActivity;
 import com.appandweb.multimoduleapp.library.common.Library;
-import com.appandweb.multimoduleapp.library.features.products.ProductsActivity;
+import com.appandweb.multimoduleapp.library.features.events.EventsActivity;
 import com.appandweb.multimoduleapp.mock.FakePushMessage;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnNavigateLib = findViewById(R.id.btnNavigateLib);
-        Button btnNavigateProducts = findViewById(R.id.btnNavigateProducts);
+        Button btnNavigateEvents = findViewById(R.id.btnNavigateEvents);
         Button btnReceiveNotification = findViewById(R.id.btnNotification);
         Button btnToken = findViewById(R.id.btnToken);
         final TextView tvToken = findViewById(R.id.tvToken);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 navigateToScreen2();
             }
         });
-        btnNavigateProducts.setOnClickListener(new View.OnClickListener() {
+        btnNavigateEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateToScreen3();
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToScreen3() {
-        Intent intent = new Intent(this, ProductsActivity.class);
+        Intent intent = new Intent(this, EventsActivity.class);
         startActivity(intent);
     }
 }

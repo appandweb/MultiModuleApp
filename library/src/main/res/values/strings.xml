@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="productsEmptyCaseText">No products found</string>
+    <string name="productsEmptyCaseText">No events found</string>
 </resources>
