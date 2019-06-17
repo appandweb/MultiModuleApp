@@ -1,6 +1,6 @@
-package com.appandweb.multimoduleapp.library.features.products
+package com.appandweb.multimoduleapp.library.features.events
 
-data class MMProduct(
+data class MMEvent(
     val uid: String,
     val name: String,
     val thumbnail: String,

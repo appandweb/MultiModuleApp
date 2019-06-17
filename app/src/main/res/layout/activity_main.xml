@@ -30,10 +30,10 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-            android:id="@+id/btnNavigateProducts"
+            android:id="@+id/btnNavigateEvents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Navigate to products list"
+            android:text="Navigate to events list"
             app:layout_constraintVertical_bias="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
